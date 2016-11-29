@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/NSObjCRuntime.h>
+#import <Cocoa/Cocoa.h>
 
 //! Project version number for VFS.
 FOUNDATION_EXPORT double VFSVersionNumber;
@@ -16,3 +17,12 @@ FOUNDATION_EXPORT const unsigned char VFSVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <VFS/PublicHeader.h>
 
+
+@interface LocalData:NSObject
+{
+
+}
+
+- (void) hello;
+
+@end

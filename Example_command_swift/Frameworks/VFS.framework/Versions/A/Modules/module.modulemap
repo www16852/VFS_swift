@@ -1,0 +1,10 @@
+framework module VFS {
+  umbrella header "VFS.h"
+
+  export *
+  module * { export * }
+}
+
+module VFS.Swift {
+    header "VFS-Swift.h"
+}
