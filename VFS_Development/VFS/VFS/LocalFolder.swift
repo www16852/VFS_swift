@@ -14,46 +14,39 @@
  * limitations under the License.
  */
 //
-//  LocalData.swift
+//  LocalFolder.swift
 //  VFS
 //
-//  Created by waltoncob on 2016/11/25.
+//  Created by waltoncob on 2016/12/5.
 //  Copyright © 2016年 waltoncob. All rights reserved.
 //
 
 import Foundation
 
-public class IllegalArgumentError:Error {
-    public let info:String
-    public init(info:String){
-        self.info = info
-    }
-}
+public class LocalFolder:IFile{
 
-public class LocalData:IFile{
-    
     private var mUrl:URL
-    private var mFile:File
+    private var mFolder:File
     private var mFactory:LocalFileFactory
     private let fileManager = FileManager.default
 
     public init(factory:LocalFileFactory, url:URL) throws{
         self.mFactory = factory;
         self.mUrl = url
-        self.mFile = try File(url:url)
+        self.mFolder = try File(url:url)
     }
 
     public  func getType() -> FileType{
-        return FileType.DATA;
+        return FileType.FOLDER;
     }
 
     public func move(file:IFile) throws -> Bool{
-        guard let data = file as? LocalData else{
-            throw IllegalArgumentError(info:"need to input LocalData")
+        guard let data = file as? LocalFolder else{
+            throw IllegalArgumentError(info:"need to input LocalFolder")
         }
         if fileManager.fileExists(atPath: data.getUrl().path){
             self.mUrl = data.getUrl()
-            self.mFile = data.getFile()
+            self.mFolder = data.getFile()
             return true
         }else{
             return false
@@ -73,33 +66,38 @@ public class LocalData:IFile{
     }
 
     public func getName() -> String{
-        return mFile.getName()
+        return mFolder.getName()
     }
 
     public func isExists() -> Bool{
-        return mFile.isExists()
+        return mFolder.isExists()
     }
 
     public func isHidden() throws -> Bool?{
-        return try mFile.isHidden()
-    }
-
-    public func getSize() -> Int{
-        return mFile.getSize()
+        return try mFolder.isHidden()
     }
 
     public func create() throws -> Bool{
-        let targetDirectory = mUrl.deletingLastPathComponent()
-        try fileManager.createDirectory(at: targetDirectory, withIntermediateDirectories: true)
-        return mFile.create()
+        try fileManager.createDirectory(at: mUrl, withIntermediateDirectories: true)
+        return true
     }
 
     public func getModificationDate() -> Date?{
-        return mFile.getModificationDate()
+        return mFolder.getModificationDate()
     }
 
     public func getFile() -> File{
-        return mFile
+        return mFolder
+    }
+
+    public func getchildren() throws -> [IFile] {
+        var children:[IFile] = []
+        let urls = try fileManager.contentsOfDirectory(at:mUrl, includingPropertiesForKeys:[.isHiddenKey])
+        for url in urls{
+            let file = try mFactory.getFile(url:url)
+            children.append(file)
+        }
+        return children
     }
 
 }
