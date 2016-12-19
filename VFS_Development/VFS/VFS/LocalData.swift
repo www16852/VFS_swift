@@ -23,13 +23,6 @@
 
 import Foundation
 
-public class IllegalArgumentError:Error {
-    public let info:String
-    public init(info:String){
-        self.info = info
-    }
-}
-
 public class LocalData:IFile{
     
     private var mUrl:URL

@@ -11,6 +11,7 @@
 		B8158D331DF543540024BB32 /* IFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8158D321DF543540024BB32 /* IFile.swift */; };
 		B8158D351DF543A70024BB32 /* IData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8158D341DF543A70024BB32 /* IData.swift */; };
 		B8158D371DF544970024BB32 /* FileType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8158D361DF544970024BB32 /* FileType.swift */; };
+		B8158D3A1DF658E40024BB32 /* IllegalArgumentError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8158D391DF658E40024BB32 /* IllegalArgumentError.swift */; };
 		B894F4411DEBDF6F005FC7E3 /* VFS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B894F4371DEBDF6F005FC7E3 /* VFS.framework */; };
 		B894F4461DEBDF70005FC7E3 /* VFSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B894F4451DEBDF70005FC7E3 /* VFSTests.swift */; };
 		B894F4481DEBDF70005FC7E3 /* VFS.h in Headers */ = {isa = PBXBuildFile; fileRef = B894F43A1DEBDF6F005FC7E3 /* VFS.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -35,6 +36,7 @@
 		B8158D321DF543540024BB32 /* IFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IFile.swift; sourceTree = "<group>"; };
 		B8158D341DF543A70024BB32 /* IData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IData.swift; sourceTree = "<group>"; };
 		B8158D361DF544970024BB32 /* FileType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileType.swift; sourceTree = "<group>"; };
+		B8158D391DF658E40024BB32 /* IllegalArgumentError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IllegalArgumentError.swift; sourceTree = "<group>"; };
 		B894F4371DEBDF6F005FC7E3 /* VFS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VFS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B894F43A1DEBDF6F005FC7E3 /* VFS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VFS.h; sourceTree = "<group>"; };
 		B894F43B1DEBDF6F005FC7E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 		B894F4391DEBDF6F005FC7E3 /* VFS */ = {
 			isa = PBXGroup;
 			children = (
+				B8158D391DF658E40024BB32 /* IllegalArgumentError.swift */,
 				B894F5691DED7D35005FC7E3 /* LocalFileFactory.swift */,
 				B894F56B1DEFD3E8005FC7E3 /* LocalData.swift */,
 				B894F5751DF50633005FC7E3 /* LocalFolder.swift */,
@@ -231,6 +234,7 @@
 				B8158D351DF543A70024BB32 /* IData.swift in Sources */,
 				B894F5761DF50633005FC7E3 /* LocalFolder.swift in Sources */,
 				B8158D331DF543540024BB32 /* IFile.swift in Sources */,
+				B8158D3A1DF658E40024BB32 /* IllegalArgumentError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
